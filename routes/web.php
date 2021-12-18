@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/bookings/thisweek', [BookingController::class, 'getThisWeekBookings']);
+Route::get('/bookings/nextweek', [BookingController::class, 'getNextWeekBookings']);
+Route::get('/bookings/wholemonth', [BookingController::class, 'getWholeMonthBookings']);
