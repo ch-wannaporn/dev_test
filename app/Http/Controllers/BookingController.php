@@ -44,6 +44,8 @@ class BookingController extends Controller
                 array_push($weekBookings, $booking);
         }
 
+        
+
         return $weekBookings;
     }
 
@@ -81,8 +83,6 @@ class BookingController extends Controller
             if($booking["roomId"] === $this->roomId && ($startYear === $year && $startMonth === $month) || ($endYear === $year && $endMonth === $month))
                 array_push($monthBookings, $booking);
         }
-
-        dd($monthBookings);
 
         return view('main', compact('roomId', 'todayBookings', 'monthBookings'));
     }

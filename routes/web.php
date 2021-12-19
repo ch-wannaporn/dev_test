@@ -14,6 +14,6 @@ use App\Http\Controllers\BookingController;
 |
 */
 
-Route::get('/bookings/thisweek', [BookingController::class, 'getThisWeekBookings']);
-Route::get('/bookings/nextweek', [BookingController::class, 'getNextWeekBookings']);
-Route::get('/bookings/wholemonth', [BookingController::class, 'getWholeMonthBookings']);
+Route::get('/bookings/thisweek', [BookingController::class, 'getThisWeekBookings'])->name('thisweek');
+Route::get('/bookings/nextweek', [BookingController::class, 'getNextWeekBookings'])->name('nextweek');
+Route::get('/bookings/wholemonth', [BookingController::class, 'getWholeMonthBookings'])->name('wholemonth');
