@@ -44,8 +44,6 @@ class BookingController extends Controller
                 array_push($weekBookings, $booking);
         }
 
-        
-
         return $weekBookings;
     }
 

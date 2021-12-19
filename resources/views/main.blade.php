@@ -56,6 +56,36 @@
                 <div id="timeline-line"></div>
                 @if(str_contains(Request::url(), 'thisweek'))
                 <div class="day-label">
+                    <span class="day-label-text">{{date('D, d M', strtotime('this Sunday'))}}</span>
+                </div>
+                <ul class="daily-timeline-list">
+                    @foreach($todayBookings as $booking)
+                    <li>
+                        <span class="font-time text-black-fade">{{date('G:i', strtotime($booking["startTime"]))}} - {{date('G:i', strtotime($booking["endTime"]))}}</span>
+                        <br/>
+                        <span class="font-activity text-black">{{$booking["title"]}}</span>
+                    </li>
+                    @endforeach
+                </ul>
+                @endif
+                @if(str_contains(Request::url(), 'nextweek'))
+                <div class="day-label">
+                    <span class="day-label-text">{{date('D, d M', strtotime('+ 7 days'))}}</span>
+                </div>
+                <ul class="daily-timeline-list">
+                    @foreach($nextWeekBookings as $booking)
+                    @if(date('w', strtotime($booking["startTime"]))===date('w', strtotime('+7 days')))
+                    <li>
+                        <span class="font-time text-black-fade">{{date('G:i', strtotime($booking["startTime"]))}} - {{date('G:i', strtotime($booking["endTime"]))}}</span>
+                        <br/>
+                        <span class="font-activity text-black">{{$booking["title"]}}</span>
+                    </li>
+                    @endif
+                    @endforeach
+                </ul>
+                @endif
+                @if(str_contains(Request::url(), 'wholemonth'))
+                <div class="day-label">
                     <span class="day-label-text">{{date('D, d M')}}</span>
                 </div>
                 <ul class="daily-timeline-list">
